@@ -32,13 +32,60 @@ print(f'Итого к оплате:    {total:.2f} ₽')
 ```
 ![ex-3](images~/lab01/03-ex.png)
 ### Задание 4
-![Код, результат работы программы](images~/lab01/04_ex.png)
+```
+minutes = int(input('Минуты: '))
+hours = minutes//60
+minutes = minutes%60
+print(f'{hours}:{minutes:02d}')
+```
+![ex-4](images~/lab01/04-ex.png)
 ### Задание 5
-![Код, результат работы программы](images~/lab01/05_ex.png)
+```
+fio = input('ФИО: ')
+initials = ''.join([x for x in fio if x.isupper()])
+len_fio = len([x for x in fio if x != ' '])+2
+print(f'Инициалы: {initials}.')
+print(f'Длина (символов): {len_fio}')
+```
+![ex-5](images~/lab01/05-ex.png)
 ### Задание 6
-![Код, результат работы программы](<images~/lab01/06_ex (2).png>)
+```
+n = int(input())
+a = 0
+b = 0
+for i in range(n):
+    user = input()
+    if user[-5:] == 'False': b += 1
+    if user[-4:] == 'True': a += 1
+print(a,b)
+```
+![ex-6](images~/lab01/06-ex.png)
 ### Задание 7
-![Код, результат работы программы](images~/lab01/07_ex.png)
+```
+in0 = input('in: ')
+out = ''
+first_letter = 0
+for i in in0:
+    if i.isupper():
+        out += i
+        first_letter = in0.index(i)
+        break
+in1 = in0[first_letter:]
+flag = False
+for i in in1:
+    if flag:
+        out += i
+        difference = in0.index(i)-first_letter
+        break
+    if i.isdigit():
+        flag = True
+in2 = in1[difference:]
+for i in range(len(in2)):
+    if i%difference == 0 and i!=0:
+        out+=in2[i]  
+print(f'out: {out}')
+```
+![ex-7](images~/lab01/07-ex.png)
 
 ## **Лаба №2**
 ### Задание 1
