@@ -1,7 +1,8 @@
 info_tuple = (" ", "ABB-01", '3.999')
+fio = info_tuple[0]
 group = info_tuple[1]
 gpa = info_tuple[2]
-if not isinstance(gpa, (float, int)): raise ValueError
+if not isinstance(gpa, (float, int)): raise ValueError from None
 f_i_o = fio.split()
 if len(f_i_o) == 3: fio_s = f_i_o[0][0].upper() + f_i_o[0][1:] + ' ' + f_i_o[1][0].upper() + '. ' + f_i_o[2][0].upper() + '., '
 elif len(f_i_o) == 2: fio_s = f_i_o[0][0].upper() + f_i_o[0][1:] + '., '
