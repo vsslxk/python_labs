@@ -1,5 +1,12 @@
 def transpose(matrix):
-    '''Реализация транспонирования матриц'''
+    """
+    Реализует транспонирование матрицы
+    In: принимает от пользователя list[list[float | int]] (проверяет, действительно ли введен список)
+    Out: возвращает list[list] - транспонированную матрицу;
+    Возвращает ValueError в случае некорректного ввода
+    """
+    if not isinstance(matrix, list):
+            return 'ValueError'
     if len(matrix) > 0:
         rows = len(matrix[0])
         t_matrix = []
@@ -18,7 +25,14 @@ for test in test_data_t:
     print(transpose(test))
 
 def row_sums(user_list):
-    '''Принимаю список пользователя со строками матрицы'''
+    """
+    Находит сумму по каждой строке матрицы
+    In: принимает от пользователя list[list[float | int]] (проверяет, действительно ли введен список)
+    Out: возвращает list[float] - список с суммами по строкам;
+    Возвращает ValueError в случае некорректного ввода
+    """
+    if not isinstance(user_list, list):
+            return 'ValueError'
     list_with_sum = []
     len_row = len(user_list[0])
     try:
@@ -35,7 +49,14 @@ for test in test_data_rs:
     print(row_sums(test))
 
 def col_sums(user_list):
-    '''Принимаю список пользователя со строками матрицы (В целом логика та же, просто меняю порядок циклов)'''
+    """
+    Находит сумму по каждому столбцу матрицы
+    In: принимает от пользователя list[list[float | int]] (проверяет, действительно ли введен список)
+    Out: возвращает list[float] - список с суммами по столбцам;
+    Возвращает ValueError в случае некорректного ввода
+    """
+    if not isinstance(user_list, list):
+            return 'ValueError'
     list_with_sum = []
     len_row = len(user_list[0])
     try:
