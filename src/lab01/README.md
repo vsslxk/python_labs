@@ -1,14 +1,14 @@
 # python_labs
 ## **Лаба №1**
 ### Задание 1
-```
+```python
 name = input('Имя: ')
 age = int(input('Возраст: '))
 print(f'Привет, {name}! Через год тебе будет {age+1}.')
 ```
 ![ex-1](../../images~/lab01/01-ex.png)
 ### Задание 2
-```
+```python
 a = float(input('a: ').replace(',', '.'))
 b = float(input('b: ').replace(',', '.'))
 summ = a+b
@@ -17,7 +17,7 @@ print(f'sum={round(summ,2)}; avg={avg}')
 ```
 ![ex-2](../../images~/lab01/02-ex.png)
 ### Задание 3
-```
+```python
 price = float(input('price='))
 discount = float(input('discount='))
 vat = float(input('vat='))
@@ -32,7 +32,7 @@ print(f'Итого к оплате:    {total:.2f} ₽')
 ```
 ![ex-3](../../images~/lab01/03-ex.png)
 ### Задание 4
-```
+```python
 minutes = int(input('Минуты: '))
 hours = minutes//60
 minutes = minutes%60
@@ -40,7 +40,7 @@ print(f'{hours}:{minutes:02d}')
 ```
 ![ex-4](../../images~/lab01/04-ex.png)
 ### Задание 5
-```
+```python
 fio = input('ФИО: ')
 initials = ''.join([x for x in fio if x.isupper()])
 len_fio = len([x for x in fio if x != ' '])+2
@@ -49,7 +49,7 @@ print(f'Длина (символов): {len_fio}')
 ```
 ![ex-5](../../images~/lab01/05-ex.png)
 ### Задание 6
-```
+```python
 n = int(input())
 a = 0
 b = 0
@@ -61,7 +61,7 @@ print(a,b)
 ```
 ![ex-6](../../images~/lab01/06-ex.png)
 ### Задание 7
-```
+```python
 in0 = input('in: ')
 out = ''
 first_letter = 0
