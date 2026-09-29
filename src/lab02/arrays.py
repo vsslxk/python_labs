@@ -8,10 +8,12 @@ def min_max(user_list):
     if not isinstance(user_list, list):
         return 'ValueError'
     try:
-        min_el = min(user_list)
-        max_el = max(user_list)
-        return tuple([min_el, max_el])
-    except ValueError:
+        min_el = max_el = user_list[0]
+        for el in user_list:
+            if el < min_el: min_el = el
+            if el > max_el: max_el = el
+        return tuple([min_el, max_el]) 
+    except IndexError:
         return 'ValueError'     
 test_data_mm = [[3, -1, 5, 5, 0], [42], [-5, -2, -9], [], [1.5, 2, 2.0, -3.1]]
 for test in test_data_mm:
@@ -26,7 +28,14 @@ def unique_sorted(user_list):
     """
     if not isinstance(user_list, list):
             return 'ValueError'
-    return sorted(list(set(user_list)))
+    user_list = list(set(user_list))
+    sorted_user_list = [10**10]
+    for user_digit in user_list:
+        for place in range(len(sorted_user_list)):
+            if user_digit < sorted_user_list[place]: 
+                sorted_user_list.insert(place, user_digit)
+                break
+    return sorted_user_list[:-1]
 test_data_us = [[3, 1, 2, 1, 3], [], [-1, -1, 0, 2, 2], [1.0, 1, 2.5, 2.5, 0]]
 for test in test_data_us:
     print(unique_sorted(test))

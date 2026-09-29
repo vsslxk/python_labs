@@ -26,7 +26,3 @@ def format_record(user_tuple):
         return fio + ', ' + group + ', ' + gpa
     except IndexError:
         return "ValueError"
-data = [("Иванов Иван Иванович", "BIVT-25", 4.6), ("Петров Пётр", "IKBO-12", 5.0), ("Петров Пётр Петрович", "IKBO-12", 5.0), ("  сидорова  анна   сергеевна ", "ABB-01", 3.999)]
-for test in data:
-    try: print(format_record(test))
-    except ValueError: print('ValueError')
