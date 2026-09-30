@@ -243,10 +243,12 @@ def format_record(user_tuple):
     """
     if not isinstance(user_tuple, tuple):
         return 'ValueError'
-    fio = user_tuple[0]
-    group = user_tuple[1]
-    gpa = user_tuple[2]
     try:
+        fio = user_tuple[0]
+        group = user_tuple[1]
+        gpa = user_tuple[2]
+        if len(user_tuple) > 3:
+            raise ValueError
         # Обработка ФИО
         name_surname_fat = fio.split()
         if len(name_surname_fat) == 3: fio = name_surname_fat[0][0].upper() + name_surname_fat[0][1:] + ' ' + name_surname_fat[1][0].upper() + '.' + name_surname_fat[2][0].upper() +'.'
