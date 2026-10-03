@@ -46,9 +46,3 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
     '''
     freqs = sorted(freq.items(), key = lambda x: (-x[1], x[0]))[:n]
     return freqs
-
-test_data_n = [["a","b","a","c","b","a"], ["bb","aa","bb","aa","cc"]]
-
-for test in test_data_n:
-    print(test, '->',count_freq(test))
-    print(count_freq(test), '->', top_n(count_freq(test), n=2))
