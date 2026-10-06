@@ -16,7 +16,7 @@ def min_max(user_list):
             if el < min_el: min_el = el
             if el > max_el: max_el = el
         return tuple([min_el, max_el]) 
-    except IndexError:
+    except (IndexError, TypeError):
         return 'ValueError'     
 test_data_mm = [[3, -1, 5, 5, 0], [42], [-5, -2, -9], [], [1.5, 2, 2.0, -3.1]]
 for test in test_data_mm:
