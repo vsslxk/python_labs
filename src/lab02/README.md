@@ -67,7 +67,7 @@ for test in test_data_f:
 ![ex-01](../../images/lab02/01-ex-02.png)
 ## Задание 2
  ```python
- def transpose(matrix):
+def transpose(matrix):
     """
     Реализует транспонирование матрицы
     In: принимает от пользователя list[list[float | int]] (проверяет, действительно ли введен список)
@@ -103,8 +103,8 @@ def row_sums(user_list):
     if not isinstance(user_list, list):
             return 'ValueError'
     list_with_sum = []
-    len_row = len(user_list[0])
     try:
+        len_row = len(user_list[0])
         for row in range(len(user_list)):
             sum_row = 0
             for ind in range(len_row):
@@ -127,8 +127,8 @@ def col_sums(user_list):
     if not isinstance(user_list, list):
             return 'ValueError'
     list_with_sum = []
-    len_row = len(user_list[0])
     try:
+        len_row = len(user_list[0])
         for ind in range(len_row):
             sum_col = 0
             for row in range(len(user_list)):          
@@ -138,7 +138,7 @@ def col_sums(user_list):
     except IndexError:
         return 'ValueError'
 test_data_cs = [[[1, 2, 3], [4, 5, 6]], [[-1, 1], [10, -10]], [[0, 0], [0, 0]], [[1, 2], [3]]]
-for test in test_data_rs:
+for test in test_data_cs:
     print(col_sums(test))
 ```
 ![ex-2](../../images/lab02/02-ex-02.png)
@@ -168,7 +168,7 @@ def format_record(user_tuple):
             raise ValueError
         group = 'гр. ' + group
         # Обработка GPA
-        if int(gpa) > 5 or int(gpa) < 0:
+        if float(gpa) > 5 or float(gpa) < 0:
             raise ValueError
         gpa = f'GPA {gpa:.2f}'
         return fio + ', ' + group + ', ' + gpa

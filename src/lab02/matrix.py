@@ -34,8 +34,8 @@ def row_sums(user_list):
     if not isinstance(user_list, list):
             return 'ValueError'
     list_with_sum = []
-    len_row = len(user_list[0])
     try:
+        len_row = len(user_list[0])
         for row in range(len(user_list)):
             sum_row = 0
             for ind in range(len_row):
@@ -58,8 +58,8 @@ def col_sums(user_list):
     if not isinstance(user_list, list):
             return 'ValueError'
     list_with_sum = []
-    len_row = len(user_list[0])
     try:
+        len_row = len(user_list[0])
         for ind in range(len_row):
             sum_col = 0
             for row in range(len(user_list)):          
@@ -69,7 +69,7 @@ def col_sums(user_list):
     except IndexError:
         return 'ValueError'
 test_data_cs = [[[1, 2, 3], [4, 5, 6]], [[-1, 1], [10, -10]], [[0, 0], [0, 0]], [[1, 2], [3]]]
-for test in test_data_rs:
+for test in test_data_cs:
     print(col_sums(test))
             
             
