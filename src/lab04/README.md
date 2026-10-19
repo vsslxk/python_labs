@@ -1,49 +1,14 @@
 # Лабораторная работа 4. Файлы: TXT/CSV и отчёты по текстовой статистике
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
-![stdlib](https://img.shields.io/badge/dependencies-stdlib%20only-success)
-![Lab](https://img.shields.io/badge/lab-04-blue)
-
-**Студент:** Василевский В. В., группа БИВТ-26-6-1
-
 ## Содержание
 
-1. [Цель работы](#цель-работы)
-2. [Структура проекта](#структура-проекта)
-3. [Как запустить](#как-запустить)
-4. [Задание A. Модуль io_txt_csv.py](#задание-a-модуль-io_txt_csvpy)
-5. [Задание B. Скрипт text_report.py](#задание-b-скрипт-text_reportpy)
-6. [Задание ★. Несколько файлов и таблица](#задание--несколько-файлов-и-таблица)
-7. [Кодировки](#кодировки)
-8. [Краевые случаи и принятые решения](#краевые-случаи-и-принятые-решения)
-9. [Тест-кейсы](#тест-кейсы)
-10. [Выводы](#выводы)
-
-## Цель работы
-
-Закрепить работу с файлами в Python (чтение и запись, кодировки), автоматизировать сбор статистики по словам и выгружать её в CSV. Работа продолжает ЛР3: модуль `src/lib/text.py` (`normalize`, `tokenize`, `count_freq`, `top_n`) используется повторно. Применяется только стандартная библиотека (`csv`, `pathlib`, `argparse`, `sys`).
-
-## Структура проекта
-
-```text
-python_labs/
-├─ README.md
-├─ src/
-│  ├─ lib/
-│  │  └─ text.py            # функции из ЛР3
-│  └─ lab04/
-│     ├─ io_txt_csv.py      # read_text, write_csv, ensure_parent_dir
-│     └─ text_report.py     # скрипт отчёта (+ ★)
-├─ data/
-│  └─ lab04/
-│     ├─ input.txt          # вход для базовой версии
-│     ├─ a.txt, b.txt       # входы для ★
-│     ├─ empty.txt          # пустой файл (кейс B)
-│     ├─ cp1251.txt         # файл в cp1251 (кейс C)
-│     └─ report*.csv        # результаты работы скрипта
-└─ images/
-   └─ lab04/                # скриншоты запусков
-```
+1. [Как запустить](#как-запустить)
+2. [Задание A. Модуль io_txt_csv.py](#задание-a-модуль-io_txt_csvpy)
+3. [Задание B. Скрипт text_report.py](#задание-b-скрипт-text_reportpy)
+4. [Задание ★. Несколько файлов и таблица](#задание--несколько-файлов-и-таблица)
+5. [Кодировки](#кодировки)
+6. [Краевые случаи и принятые решения](#краевые-случаи-и-принятые-решения)
+7. [Тест-кейсы](#тест-кейсы)
 
 ## Как запустить
 
@@ -69,11 +34,9 @@ python src/lab04/text_report.py --in data/lab04/a.txt data/lab04/b.txt --per-fil
 | `--total` | не создаётся | ★ сводный отчёт `word,count` по всем файлам |
 
 > [!NOTE]
-> CSV-файлы сохраняются в UTF-8. При просмотре в Windows PowerShell используйте `Get-Content файл.csv -Encoding UTF8`, иначе русские буквы отобразятся некорректно (сами файлы при этом правильные).
+> CSV-файлы сохраняются в UTF-8. При просмотре в Windows PowerShell используйте `Get-Content файл.csv -Encoding UTF8`, иначе русские буквы отобразятся некорректно.
 
 ## Задание A. Модуль io_txt_csv.py
-
-Модуль содержит три функции ввода-вывода, не связанные с подсчётом слов (ввод-вывод и логика разделены, чтобы функции можно было переиспользовать в ЛР5–ЛР6).
 
 | Функция | Что делает |
 |---|---|
@@ -161,16 +124,14 @@ def write_csv(
 ```powershell
 python -c "import sys; sys.path.insert(0,'src/lab04'); from io_txt_csv import *; print(repr(read_text('data/lab04/input.txt'))); write_csv([('word','count'),('test',3)], 'data/lab04/check.csv')"
 ```
-
-![Мини-тест read_text и write_csv](images/lab04/img06.png)
+![Мини-тест read_text и write_csv](../../images/lab04/img11.png)
 
 Проверка `ValueError` при строках разной длины:
 
 ```powershell
 python -c "import sys; sys.path.insert(0,'src/lab04'); from io_txt_csv import write_csv; write_csv([(1,2),(3,)], 'data/lab04/x.csv')"
 ```
-
-![ValueError при строках разной длины](images/lab04/img07.png)
+![ValueError при строках разной длины](../../images/lab04/img10.png)
 
 ## Задание B. Скрипт text_report.py
 
@@ -369,18 +330,18 @@ python src/lab04/text_report.py
 Get-Content data\lab04\report.csv -Encoding UTF8
 ```
 
-![Кейс A: запуск](images/lab04/img01.png)
+![Кейс A: запуск](../../images/lab04/img01.png)
 
-![Кейс A: содержимое report.csv](images/lab04/img02.png)
-
+![Кейс A: содержимое report.csv](../../images/lab04/img02.png)
 ### B. Пустой файл
 
 ```powershell
 python src/lab04/text_report.py --in data/lab04/empty.txt
 Get-Content data\lab04\report.csv -Encoding UTF8
 ```
+![Кейс B: пустой файл](../../images/lab04/img03.png)
 
-![Кейс B: пустой файл](images/lab04/img03.png)
+![Кейс B: CSV-отчёт](../../images/lab04/img04.png)
 
 ### C. Кодировка cp1251
 
@@ -388,7 +349,9 @@ Get-Content data\lab04\report.csv -Encoding UTF8
 python src/lab04/text_report.py --in data/lab04/cp1251.txt --encoding cp1251
 ```
 
-![Кейс C: чтение cp1251](images/lab04/img04.png)
+![Кейс C: чтение cp1251](../../images/lab04/img05.png)
+
+![Кейс C: CSV-отчёт](../../images/lab04/img06.png)
 
 Тот же файл без `--encoding` (чтение в UTF-8 невозможно, выводится сообщение об ошибке):
 
@@ -396,7 +359,7 @@ python src/lab04/text_report.py --in data/lab04/cp1251.txt --encoding cp1251
 python src/lab04/text_report.py --in data/lab04/cp1251.txt
 ```
 
-![Кейс C: ошибка кодировки](images/lab04/img08.png)
+![Кейс C: ошибка кодировки](../../images/lab04/img07.png)
 
 ### D★. Несколько файлов
 
@@ -406,7 +369,7 @@ Get-Content data\lab04\report_per_file.csv -Encoding UTF8
 Get-Content data\lab04\report_total.csv -Encoding UTF8
 ```
 
-![Кейс D: несколько файлов](images/lab04/img05.png)
+![Кейс D: несколько файлов](../../images/lab04/img08.png)
 
 ### Файл не найден
 
@@ -414,8 +377,5 @@ Get-Content data\lab04\report_total.csv -Encoding UTF8
 python src/lab04/text_report.py --in data/lab04/net.txt
 ```
 
-![Несуществующий файл](images/lab04/img09.png)
+![Несуществующий файл](../../images/lab04/img09.png)
 
-## Выводы
-
-В работе реализован модуль ввода-вывода (`read_text`, `write_csv`, `ensure_parent_dir`) и скрипт, который строит отчёты по частотам слов в формате CSV. Освоены работа с `pathlib` и `csv`, явное указание кодировок, создание недостающих директорий, разбор параметров командной строки через `argparse` и обработка ошибок. Функции из ЛР3 переиспользованы без изменений, а ввод-вывод отделён от логики, поэтому модуль `io_txt_csv.py` можно применять в следующих лабораторных.
